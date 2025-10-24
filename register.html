@@ -1,32 +1,142 @@
-# ==============================
-# Commit Message Template (by Yaya)
-# ==============================
+<!DOCTYPE html>
+<html lang="id">
 
-# FORMAT:
-# <type>(<scope>): <short description>
-#
-# Contoh:
-# feat(register): add registration form and input validation
-# fix(login): correct password validation
-# docs(readme): update project description
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi Akun</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-# ==============================
-# Summary (WAJIB)
-# Tulis ringkasan singkat perubahanmu di bawah baris ini:
-# (Contoh: feat(register): add input validation)
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe6f2, #fff5f8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-<type>(<scope>): <short description>
+        .container {
+            background: #fff;
+            padding: 35px 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            width: 380px;
+            text-align: center;
+        }
 
+        h2 {
+            color: #ff5c8d;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
 
-# ==============================
-# Description (OPSIONAL)
-# Tulis detail perubahan di bawah ini:
-# - Apa yang kamu ubah / tambahkan
-# - Kenapa perubahan ini perlu
-# - Catatan tambahan (jika ada)
-#
-# Contoh:
-# - Membuat halaman registrasi baru
-# - Menambahkan validasi input username & password
+        label {
+            display: block;
+            margin-top: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
 
-# - 
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1.5px solid #ffd4e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #ff8db3;
+            box-shadow: 0 0 5px rgba(255, 182, 193, 0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #ff7fa8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background: #ff5c8d;
+            transform: scale(1.02);
+        }
+
+        .error {
+            color: #e64573;
+            font-size: 0.85em;
+            margin-top: 5px;
+            text-align: left;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Daftar Akun Baru</h2>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Masukkan username kamu">
+            <div class="error" id="usernameError"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="contoh@email.com">
+            <div class="error" id="emailError"></div>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Minimal 6 karakter">
+            <div class="error" id="passwordError"></div>
+
+            <button type="submit">Daftar Sekarang</button>
+        </form>
+        <p class="note">Sudah punya akun? <a href="#" style="color:#ff5c8d; text-decoration:none;">Masuk</a></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            document.querySelectorAll(".error").forEach(e => e.innerText = "");
+
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (username.length < 4) {
+                document.getElementById("usernameError").innerText = "Username minimal 4 karakter.";
+                isValid = false;
+            }
+            if (!email.includes("@")) {
+                document.getElementById("emailError").innerText = "Email tidak valid.";
+                isValid = false;
+            }
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password minimal 6 karakter.";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
