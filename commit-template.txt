@@ -1,0 +1,32 @@
+# ==============================
+# Commit Message Template (by Yaya)
+# ==============================
+
+# FORMAT:
+# <type>(<scope>): <short description>
+#
+# Contoh:
+# feat(register): add registration form and input validation
+# fix(login): correct password validation
+# docs(readme): update project description
+
+# ==============================
+# Summary (WAJIB)
+# Tulis ringkasan singkat perubahanmu di bawah baris ini:
+# (Contoh: feat(register): add input validation)
+
+<type>(<scope>): <short description>
+
+
+# ==============================
+# Description (OPSIONAL)
+# Tulis detail perubahan di bawah ini:
+# - Apa yang kamu ubah / tambahkan
+# - Kenapa perubahan ini perlu
+# - Catatan tambahan (jika ada)
+#
+# Contoh:
+# - Membuat halaman registrasi baru
+# - Menambahkan validasi input username & password
+
+# - 
